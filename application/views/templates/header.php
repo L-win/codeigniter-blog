@@ -20,6 +20,7 @@
            </ul>
              <ul class="navbar-nav">
                  <li class="nav-item active"><a class="btn btn-outline-primary" href="<?= base_url() ?>posts/create">Create post</a></li>
+				<li class="nav-item active"><a class="nav-link" href="<?= base_url() ?>users/register">Register</a></li>
              </ul>
          </div>
        </nav>
@@ -27,3 +28,9 @@
         <div class="container">
         <h2><?= $title ?></h2>
         <br><br>
+		
+		<?php
+			if( $this->session->flashdata( 'user_registered' ) ){
+				echo $this->session->flashdata('user_registered');
+			}
+		?>
