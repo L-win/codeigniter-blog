@@ -9,7 +9,11 @@
 			
 		}
 		
-		public function get_posts( $slug = FALSE ){
+		public function get_posts( $slug = FALSE, $limit = FALSE, $offset = FALSE ){
+			
+			if ( $limit ){
+				$this -> db -> limit( $limit, $offset );
+			}
 			
 			if ( $slug === FALSE ){
 				$this->db->order_by( 'id', 'DESC' );

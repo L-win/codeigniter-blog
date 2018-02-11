@@ -1,2 +1,5 @@
 body { width: 70%; margin: auto; margin-top: 30px }
 .container { max-width: 95%; }
+
+.pagination { margin-top: 30px; margin-bottom: 30px; }
+.pagination strong{ position: relative; display: block; padding: 0.5rem 0.75rem; margin-left: -1px; line-height: 1.25; background-color: #fff; border: 1px solid #ddd; }
