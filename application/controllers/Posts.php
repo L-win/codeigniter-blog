@@ -26,6 +26,8 @@
 		
 		public function create( ){
 			
+			if ( !$this->session->userdata('logged_in') ) redirect('users/login');
+			
 			$data['title'] = 'Create post';
 			
 			$this -> form_validation -> set_rules( 'title', 'Title', 'required' );
@@ -46,11 +48,14 @@
 		}
 		
 		public function delete( $id ){
+			if ( !$this->session->userdata('logged_in') ) redirect('users/login');
 			$this->Post_model->delete_post($id);
 			redirect('posts');
 		}
 		
 		public function edit( $slug ){
+			
+			if ( !$this->session->userdata('logged_in') ) redirect('users/login');
 			
 			$data['post'] = $this -> Post_model -> get_posts( $slug );
 			$data['title'] = 'Edit '.$data['post']['title'];
@@ -60,10 +65,14 @@
 			$this -> load -> view ( 'templates/footer' );
 			
 		}
+
 		public function update( ){
+			
+			if ( !$this->session->userdata('logged_in') ) redirect('users/login');
 			
 			$this->Post_model->update_post();
 			redirect('posts');
 			
 		}
+		
 	}
