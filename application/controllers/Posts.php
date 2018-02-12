@@ -3,6 +3,8 @@
 	class Posts extends CI_Controller {
 		
 		public function index( $offset = 0 ){
+
+			$this->output->cache(5);
 			
 			$config['base_url'] = base_url( ) . 'posts/index/';
 			$config['total_rows'] = $this->db->count_all( 'posts' );
@@ -22,6 +24,8 @@
 		}
 		
 		public function view( $slug ){
+			
+			$this->output->cache(5);
 			
 			$data['title'] = 'post title';
 			$data['post'] = $this -> Post_model -> get_posts( $slug );
